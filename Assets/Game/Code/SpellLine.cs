@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using DayOne.Extensions;
+using DayOne.Scriptables;
 using UnityEngine;
 
 namespace DayOne
@@ -10,21 +11,23 @@ namespace DayOne
     {
         public event Action Ticked = null;
 
-        [SerializeField] private float _forceMultiplier = 1;
-
-        private readonly Timer _timer = new Timer(1);
+        private Timer _timer = null;
         private LineRenderer _renderer = null;
         private InputsMerge _target = null;
+        private float _forceMultiplier = 1;
         private bool _isAttractor = false;
 
         private void Awake()
         {
             _renderer = GetComponent<LineRenderer>();
+
+            _timer = new Timer(SpellInformation.TicksPerSecond);
         }
 
-        public void Initialize(InputsMerge target, bool isAttractor)
+        public void Initialize(InputsMerge target, float forceMultiplier, bool isAttractor)
         {
             _target = target;
+            _forceMultiplier = forceMultiplier;
             _isAttractor = isAttractor;
         }
 

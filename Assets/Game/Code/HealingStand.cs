@@ -1,17 +1,26 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using DayOne.Extensions;
+using DayOne.Scriptables;
 
 namespace DayOne
 {
     public class HealingStand : MonoBehaviour
     {
+        public event Action Destroyed = null;
+
         private float _forceMultiplier = 1;
         private float _radius = 5;
         private float _healPerTick = 5;
 
-        private readonly Timer _timer = new Timer(1);
+        private Timer _timer = null;
         private Timer _lifeTimer = null;
+
+        private void Awake()
+        {
+            _timer = new Timer(SpellInformation.TicksPerSecond);
+        }
 
         public void Initialize(float forceMultiplier, float radius, float healPerTick, float lifeTime)
         {
@@ -75,6 +84,8 @@ namespace DayOne
             _lifeTimer.Ticked -= OnLifeTimerTicked;
 
             Destroy(gameObject);
+
+            Destroyed?.Invoke();
         }
     }
 }

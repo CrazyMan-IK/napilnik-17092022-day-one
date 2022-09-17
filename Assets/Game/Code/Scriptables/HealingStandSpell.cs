@@ -23,7 +23,18 @@ namespace DayOne.Scriptables
             var stand = Instantiate(_standPrefab, result.point, Quaternion.identity);
             stand.Initialize(_forceMultiplier, _radius, _healPerTick, _lifeTime);
 
+            stand.Destroyed += onStandDestroyed;
+
             return true;
+
+            void onStandDestroyed() => OnStandDestroyed(stand, finished, onStandDestroyed);
+        }
+
+        private void OnStandDestroyed(HealingStand stand, Action finished, Action onStandDestroyed)
+        {
+            stand.Destroyed -= onStandDestroyed;
+
+            finished();
         }
     }
 }

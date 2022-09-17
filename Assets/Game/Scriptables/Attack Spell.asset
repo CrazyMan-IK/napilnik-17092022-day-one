@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8487a8016f9042a4496ef87e397024c4, type: 3}
   m_Name: Attack Spell
   m_EditorClassIdentifier: 
+  _ticksPerSecond: 10
   <Icon>k__BackingField: {fileID: 21300000, guid: 9f43c6911bfdb489fad5cd24622b5182, type: 3}
   <Culldown>k__BackingField: 1
-  <DamagePerTick>k__BackingField: 5
-  <LinePrefab>k__BackingField: {fileID: -7969689780963501514, guid: c048e3302f40d97458101e6ee9623be4, type: 3}
+  _damagePerTick: 5
+  _forceMultiplier: 2
+  _linePrefab: {fileID: -7969689780963501514, guid: c048e3302f40d97458101e6ee9623be4, type: 3}

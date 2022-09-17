@@ -62,7 +62,7 @@ namespace DayOne.UI
 
         public void Use(Vector2 point, Player player)
         {
-            if (_spell.TryUse(point, player, OnSpellFinished))
+            if (!_culldownOverlay.enabled && _spell.TryUse(point, player, OnSpellFinished))
             {
                 _culldownOverlay.enabled = true;
             }

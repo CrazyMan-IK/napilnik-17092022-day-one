@@ -12,6 +12,7 @@ namespace DayOne
         [SerializeField] private float _maxValue = 100;
 
         public float Value { get; private set; } = 0;
+        public float MaxValue => _maxValue;
 
         private void Awake()
         {

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e81a2c234f6d6241b9d344f5a118685, type: 3}
   m_Name: Heal Spell
   m_EditorClassIdentifier: 
+  _ticksPerSecond: 10
   <Icon>k__BackingField: {fileID: 21300000, guid: 0e2f4307e2b46440d8b1018c7ed04849, type: 3}
   <Culldown>k__BackingField: 1
-  <HealPerTick>k__BackingField: 5
-  <LinePrefab>k__BackingField: {fileID: -7969689780963501514, guid: ddacccd2c8317664a86b4e2624c69e2d, type: 3}
+  _healPerTick: 5
+  _forceMultiplier: 2
+  _linePrefab: {fileID: -7969689780963501514, guid: ddacccd2c8317664a86b4e2624c69e2d, type: 3}

@@ -6,8 +6,9 @@ namespace DayOne.Scriptables
     [CreateAssetMenu(fileName = "New HealSpellInformation", menuName = "Day One/Heal Spell", order = 51)]
     public class HealSpell : SpellInformation
     {
-        [field: SerializeField] public float HealPerTick { get; private set; } = 5;
-        [field: SerializeField] public SpellLine LinePrefab { get; private set; } = null;
+        [SerializeField] private float _healPerTick = 5;
+        [SerializeField] private float _forceMultiplier = 3;
+        [SerializeField] private SpellLine _linePrefab = null;
 
         public override bool TryUse(Vector2 point, Player player, Action finished)
         {
@@ -16,8 +17,8 @@ namespace DayOne.Scriptables
                 return false;
             }
 
-            var line = Instantiate(LinePrefab, player.transform);
-            line.Initialize(inputsMerge, true);
+            var line = Instantiate(_linePrefab, player.transform);
+            line.Initialize(inputsMerge, _forceMultiplier, true);
 
             player.Moved += onPlayerMoved;
             line.Ticked += onTimerTicked;
@@ -40,7 +41,7 @@ namespace DayOne.Scriptables
 
         private void OnTimerTicked(Health health, Player player, SpellLine line, Action finished, Action<Player> onPlayerMoved, Action onTimerTicked)
         {
-            health.Heal(HealPerTick);
+            health.Heal(_healPerTick);
 
             if (health.Value > 0)
             {

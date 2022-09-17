@@ -28,16 +28,18 @@ namespace DayOne
             {
                 var target = _targets[i];
 
-                _values[i] = target.Value;
-                _transforms[i] = Matrix4x4.Translate(target.transform.position); //target.transform.localToWorldMatrix;
-
-                if (target.Value <= 0)
+                if (target == null || target.Value <= 0)
                 {
                     isAnyDied = true;
 
                     _targets.Remove(target);
                     i--;
+
+                    continue;
                 }
+
+                _values[i] = target.Value / target.MaxValue;
+                _transforms[i] = Matrix4x4.Translate(target.transform.position);
             }
 
             if (isAnyDied)
@@ -59,8 +61,8 @@ namespace DayOne
             {
                 var target = _targets[i];
 
-                _values[i] = target.Value;
-                _transforms[i] = target.transform.localToWorldMatrix;
+                _values[i] = target.Value / target.MaxValue;
+                _transforms[i] = Matrix4x4.Translate(target.transform.position);
             }
         }
     }

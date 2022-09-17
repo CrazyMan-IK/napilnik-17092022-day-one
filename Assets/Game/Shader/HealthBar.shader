@@ -61,7 +61,7 @@ Shader "Unlit/HealthBar"
 
 			fixed4 frag(v2f i) : SV_Target
 			{
-				return fixed4(i.value, 0, 0, 1.0);
+				return fixed4(step(i.uv.x, i.value), 0, 0, 1.0);
 			}
 			ENDCG
 		}
