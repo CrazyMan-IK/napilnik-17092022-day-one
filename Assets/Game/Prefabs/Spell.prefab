@@ -52,7 +52,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046653772660366966}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 4565688534248875577}
   - component: {fileID: 4565688534248875574}
   - component: {fileID: 5179973180616756722}
+  - component: {fileID: 398520201299961736}
   - component: {fileID: 2851170947021289462}
   m_Layer: 5
   m_Name: Spell
@@ -166,6 +167,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53df088365754804093aeebbd9904571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &398520201299961736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4565688534248875573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5b6eef2b2165914eb26f58c2d314afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _view: {fileID: 6543438701456262996}
+  _culldownOverlay: {fileID: 1806171082391112395}
 --- !u!114 &2851170947021289462
 MonoBehaviour:
   m_ObjectHideFlags: 0
